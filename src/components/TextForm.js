@@ -15,6 +15,16 @@ export default function TextForm(props) {
     let newText = "";
     setText(newText);
   };
+  const handleCopyTxt = () => {
+    let text = document.getElementById("my-txt-box");
+    // console.log(text);
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
   const onChange = (event) => {
     console.log("object");
     setText(event.target.value);
@@ -28,7 +38,7 @@ export default function TextForm(props) {
           <textarea
             className="form-control"
             value={text}
-            id="myBox"
+            id="my-txt-box"
             rows="8"
             onChange={onChange}
           ></textarea>
@@ -53,6 +63,22 @@ export default function TextForm(props) {
           onClick={handleClearClick}
         >
           Clear
+        </button>
+        <button
+          id="btn-copy-text-id"
+          className="btn btn-copy-text btn-primary my-md-0 mt-3 me-3"
+          type="button"
+          onClick={handleCopyTxt}
+        >
+          Copy Text
+        </button>
+        <button
+          id="btn-copy-text-id"
+          className="btn btn-copy-text btn-primary my-md-0 mt-3 me-3"
+          type="button"
+          onClick={handleExtraSpaces}
+        >
+          Remove extra Spaces
         </button>
       </div>
       <div className="container my-3">

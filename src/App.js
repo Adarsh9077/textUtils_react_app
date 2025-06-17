@@ -8,11 +8,11 @@ function App() {
     // <h1> Hello Ji</h1>
     <>
       <Navbar title="TextUtils" />
-      {/* <TextForm heading="Enter the text to analyze below" /> */}
-      <About />
+      <TextForm heading="Enter the text to analyze below" />
+      {/* <About /> */}
     </>
   );
 }
 
 export default App;
-//  CWH part 7 08:00
+//  CWH part 12 00:00

@@ -6,12 +6,21 @@ export default function About() {
     backgroundColor: "#fff",
     color: "#000",
   });
-   const toggleStyle = () => {
+  const [btnText, setBtnText] = useState("Enable Dark Mode");
+  const toggleStyle = () => {
     if (myStyle.color === "#fff") {
       setMyStyle({
         backgroundColor: "#fff",
-        color: "#00",
+        color: "#000",
       });
+      setBtnText("Enable Dark Mode");
+    } else {
+      setMyStyle({
+        backgroundColor: "#000",
+        color: "#fff",
+        border: "1px solid #fff",
+      });
+      setBtnText("Enable Light Mode");
     }
   };
   //   let myStyle = {
@@ -146,8 +155,12 @@ export default function About() {
             </div>
             <div className="col-md-12">
               <div className="btn-container my-3">
-                <button className="btn btn-primary" type="button" onClick={toggleStyle}>
-                  Enable Dark Mode
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={toggleStyle}
+                >
+                  {btnText}
                 </button>
               </div>
             </div>
