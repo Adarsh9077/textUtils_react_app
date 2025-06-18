@@ -32,7 +32,10 @@ export default function TextForm(props) {
   const [text, setText] = useState("Enter text here");
   return (
     <>
-      <div className="container my-3">
+      <div
+        className="container my-3"
+        style={{ color: props.mode === "light" ? "black" : "white" }}
+      >
         <h2>{props.heading}</h2>
         <div className="mb-3">
           <textarea
@@ -40,6 +43,10 @@ export default function TextForm(props) {
             value={text}
             id="my-txt-box"
             rows="8"
+            style={{
+              backgroundColor: props.mode === "light" ? "white" : "grey",
+              color: props.mode === "light" ? "black" : "white",
+            }}
             onChange={onChange}
           ></textarea>
         </div>
@@ -81,14 +88,17 @@ export default function TextForm(props) {
           Remove extra Spaces
         </button>
       </div>
-      <div className="container my-3">
+      <div
+        className="container my-3"
+        style={{ color: props.mode === "light" ? "black" : "white" }}
+      >
         <h2>Your text summary</h2>
         <p>
           {text.split(" ").length} words and {text.length} characters
         </p>
         <p>{0.008 * text.split(" ").length} Minutes Read</p>
         <h3>Preview</h3>
-        <p>{text}</p>
+        <p>{text.length>0? text:"Enter something in the textbox above to preview it here"}</p>
       </div>
     </>
   );
