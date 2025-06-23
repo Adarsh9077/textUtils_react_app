@@ -6,29 +6,29 @@ export default function TextForm(props) {
     console.log("object");
     let newText = text.toUpperCase();
     setText(newText);
-    props.alert("Converted to Uppercase!", "success");
+    props.showAlert("Converted to Uppercase!", "success");
   };
   const handleLowerCase = () => {
     let newText = text.toLowerCase();
     setText(newText);
-    props.alert("Converted to Lowercase", "success");
+    props.showAlert("Converted to Lowercase", "success");
   };
   const handleClearClick = () => {
     let newText = "";
     setText(newText);
-    props.alert("Text Cleared", "success");
+    props.showAlert("Text Cleared", "success");
   };
   const handleCopyTxt = () => {
     let text = document.getElementById("my-txt-box");
     // console.log(text);
     text.select();
     navigator.clipboard.writeText(text.value);
-    props.alert("Copied to Clipboard!", "success");
+    props.showAlert("Copied to Clipboard!", "success");
   };
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
-    props.alert("Extra spaces removed", "success");
+    props.showAlert("Extra spaces removed", "success");
   };
   const onChange = (event) => {
     console.log("object");
@@ -114,4 +114,3 @@ export default function TextForm(props) {
 }
 
 TextForm.propTypes = { heading: propTypes.string };
-// 00:00 part 9
