@@ -4,7 +4,7 @@ import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -33,9 +33,13 @@ function App() {
     <>
       <Router>
         <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+        <div style={{ height: "50px" }}>
+          {" "}
+          <Alert alert={alert} />
+        </div>
         <div className="container">
           <Routes>
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<About mode={mode} />} />
             <Route
               exact
               path="/"
@@ -48,7 +52,6 @@ function App() {
               }
             />
           </Routes>
-          <Alert alert={alert} />
         </div>
       </Router>
     </>
@@ -56,4 +59,5 @@ function App() {
 }
 
 export default App;
-// !CWH part 17 00:00
+// !CWH part 19 17:00
+// http://192.168.1.3:3000

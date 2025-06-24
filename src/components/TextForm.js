@@ -49,7 +49,7 @@ export default function TextForm(props) {
             id="my-txt-box"
             rows="8"
             style={{
-              backgroundColor: props.mode === "light" ? "white" : "grey",
+              backgroundColor: props.mode === "light" ? "white" : "#999",
               color: props.mode === "light" ? "black" : "white",
             }}
             onChange={onChange}
@@ -63,14 +63,14 @@ export default function TextForm(props) {
           Convert to UpperCase
         </button>
         <button
-          className="btn btn-primary mx-3"
+          className="btn btn-primary mx-md-3 mx-1"
           type="button"
           onClick={handleLowerCase}
         >
           Convert to LowerCase
         </button>
         <button
-          className="btn btn-clear-txt btn-primary my-md-0 mt-3 me-3"
+          className="btn btn-clear-txt btn-primary my-md-0 mt-1 me-md-3 me-1"
           type="button"
           onClick={handleClearClick}
         >
@@ -78,7 +78,7 @@ export default function TextForm(props) {
         </button>
         <button
           id="btn-copy-text-id"
-          className="btn btn-copy-text btn-primary my-md-0 mt-3 me-3"
+          className="btn btn-copy-text btn-primary my-md-0 mt-1 me-md-3 me-1"
           type="button"
           onClick={handleCopyTxt}
         >
@@ -86,7 +86,7 @@ export default function TextForm(props) {
         </button>
         <button
           id="btn-copy-text-id"
-          className="btn btn-copy-text btn-primary my-md-0 mt-3 me-3"
+          className="btn btn-copy-text btn-primary my-md-0 mt-1 me-3"
           type="button"
           onClick={handleExtraSpaces}
         >
@@ -99,9 +99,20 @@ export default function TextForm(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes Read</p>
+        <p>
+          {0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes Read
+        </p>
         <h3>Preview</h3>
         <p>
           {text.length > 0
