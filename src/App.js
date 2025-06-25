@@ -45,7 +45,7 @@ function App() {
               path="/"
               element={
                 <TextForm
-                  heading="Enter the text to analyze below"
+                  heading="TextUtils - Word Counter, Character Counter, Remove extra spaces"
                   mode={mode}
                   alert={showAlert}
                 />
@@ -59,5 +59,5 @@ function App() {
 }
 
 export default App;
-// !CWH part 19 17:00
+// !CWH part 20 00:00
 // http://192.168.1.3:3000
